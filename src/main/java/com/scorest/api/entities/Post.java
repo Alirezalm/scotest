@@ -1,5 +1,6 @@
-package com.scorest.api;
+package com.scorest.api.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -10,11 +11,13 @@ import jakarta.persistence.ManyToOne;
 public class Post {
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Integer id;
     private String title;
     private String description;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     public User getUser() {

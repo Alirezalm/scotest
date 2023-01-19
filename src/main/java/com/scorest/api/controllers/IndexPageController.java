@@ -1,5 +1,6 @@
-package com.scorest.api;
+package com.scorest.api.controllers;
 
+import com.scorest.api.entities.IndexPage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

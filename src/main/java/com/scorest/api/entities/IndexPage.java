@@ -1,4 +1,4 @@
-package com.scorest.api;
+package com.scorest.api.entities;
 
 
 public class IndexPage {
