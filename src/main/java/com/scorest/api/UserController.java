@@ -7,13 +7,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 public class UserController {
-    private final UserDaoService service;
+    private final UserRepository service;
 
-    public UserController(UserDaoService service) {
+    public UserController(UserRepository service) {
         this.service = service;
     }
 
@@ -22,10 +21,10 @@ public class UserController {
         return service.findAll();
     }
 
-    @GetMapping("/users/{id}")
-    public User retrieveUser(@PathVariable int id) {
-        return service.findUser(id).orElseThrow(() -> new NoUserFoundException("no user"));
-    }
+//    @GetMapping("/users/{id}")
+//    public User retrieveUser(@PathVariable int id) {
+//        return service.findUser(id).orElseThrow(() -> new NoUserFoundException("no user"));
+//    }
 
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
@@ -37,8 +36,8 @@ public class UserController {
         return ResponseEntity.created(loc).build();
     }
 
-    @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable int id) {
-        service.removeUser(id);
-    }
+//    @DeleteMapping("/users/{id}")
+//    public void deleteUser(@PathVariable int id) {
+//        service.removeUser(id);
+//    }
 }

@@ -1,17 +1,26 @@
 package com.scorest.api;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
+@Entity(name = "user_data")
 public class User {
-
+    @Id
+    @GeneratedValue
     private Integer id;
     @Size(min = 2)
     private String name;
     @Past
     private LocalDate birthDate;
+
+    public User() {
+
+    }
 
     public Integer getId() {
         return id;
@@ -45,10 +54,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthDate=" + birthDate +
-                '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + ", birthDate=" + birthDate + '}';
     }
 }
